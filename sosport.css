@@ -1,0 +1,29 @@
+/* CSS declarations go here */
+
+#SoSportContentWrapper {
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#ImagesContainer {
+
+}
+
+#CameraButton {
+	cursor: select;
+}
+
+.sport_image {
+	max-width: 100%;
+}
+
+#ImageUploadBar {
+	text-align: center;
+}
+
+#LoadingNotice {
+	line-height: 250px;
+}
+
+body { padding-bottom: 70px; }

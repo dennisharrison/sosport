@@ -1,0 +1,12 @@
+<template name="media_items">
+  <div id="ImagesContainer">
+  {{#each media_items}}
+  	{{> media_item_listing}}
+  {{/each}}
+  </div>
+  {{> file_picker}}
+</template>
+
+<template name="media_item_listing">
+  <img src="{{file_server_url}}{{this.name}}" class="sport_image"/>
+</template>

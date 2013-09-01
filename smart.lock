@@ -1,0 +1,89 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "accounts-ui-bootstrap-3": {},
+      "bootstrap-3": {},
+      "filepicker": {},
+      "fs": {},
+      "sugarjs": {},
+      "router": {},
+      "bootstrap3-less": {},
+      "roles": {},
+      "sugar": {},
+      "iron-router": {}
+    },
+    "packages": {
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.2.2",
+        "commit": "570ffe3ba084bae10c53915e5b0074dae26cae4a"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.4",
+        "commit": "680c056e849d079a1b669247f347da2b443aad91"
+      },
+      "filepicker": {
+        "git": "https://github.com/Filepicker/meteor.git",
+        "tag": "v0.3.0",
+        "commit": "dcb6f3779e5fc105520ba06b0392e3a79c73a7e6"
+      },
+      "fs": {
+        "git": "https://github.com/peerlibrary/meteor-fs.git",
+        "tag": "v0.1.2",
+        "commit": "069d7fcaeb5df000a57238fde2785faf6dc1c37c"
+      },
+      "sugarjs": {
+        "git": "https://github.com/crapthings/meteor-sugarjs.git",
+        "tag": "v1.4.0",
+        "commit": "891440a1c517e62265b9be1295a9c0a5e2a491c3"
+      },
+      "router": {
+        "git": "https://github.com/tmeasday/meteor-router.git",
+        "tag": "v0.5.4",
+        "commit": "e40ee450a756b54a32ed67be4595772403256fb5"
+      },
+      "bootstrap3-less": {
+        "git": "https://github.com/eprochasson/bootstrap3-less",
+        "tag": "v0.1.1",
+        "commit": "82d3e32b6a44bad7bd439b9e02ce33161e58996d"
+      },
+      "roles": {
+        "git": "https://github.com/alanning/meteor-roles.git",
+        "tag": "v1.0.6",
+        "commit": "f81cbf7c765a4ed7e16a580c288db6f10a90856b"
+      },
+      "sugar": {
+        "git": "https://github.com/bevanhunt/meteor-sugar.git",
+        "tag": "v0.0.9",
+        "commit": "751a4465e0a7d7e4e800e794ca1e6a449e15e63d"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.5.4",
+        "commit": "3e0e22ff85630b7503d0daa1538c6d90abb84020"
+      },
+      "assert": {
+        "git": "https://github.com/peerlibrary/meteor-assert.git",
+        "tag": "v0.2.2",
+        "commit": "5f87f665ccd6c74322febaf78fe5a24dbfb7949c"
+      },
+      "blocking": {
+        "git": "https://github.com/peerlibrary/meteor-blocking.git",
+        "tag": "v0.4.0",
+        "commit": "e25a0be72e771b317b26d2bb5758c983bdcef23c"
+      },
+      "page-js-ie-support": {
+        "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
+        "tag": "v1.3.5",
+        "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
+      },
+      "HTML5-History-API": {
+        "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
+        "tag": "v4.0.0",
+        "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      }
+    }
+  }
+}
