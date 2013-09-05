@@ -16,5 +16,5 @@ roles.each(function(role, id){
 // By default the admin user gets ALL roles.
 _.each(Roles.getAllRoles().fetch(), function(role){
   var user = Meteor.users.findOne("LpoTXiHowtsDxv98m");
-	Roles.addUsersToRoles(user._id, role.name);
+	//Roles.addUsersToRoles(user._id, role.name);
 });

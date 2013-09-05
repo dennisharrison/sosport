@@ -9,6 +9,7 @@
     "bootstrap3-less": {},
     "roles": {},
     "sugar": {},
-    "iron-router": {}
+    "iron-router": {},
+    "imagemagick": {}
   }
 }

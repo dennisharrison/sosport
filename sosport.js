@@ -1,4 +1,5 @@
  if (Meteor.isClient) {
+  Meteor.absoluteUrl.defaultOptions.rootUrl = "http://haven.aeonstructure.com:3000";
 
   Template.file_picker.events({
     'click #CameraButton': function(ev) {
@@ -20,5 +21,6 @@
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
+    Meteor.absoluteUrl.defaultOptions.rootUrl = "http://haven.aeonstructure.com:3000";
   });
 }

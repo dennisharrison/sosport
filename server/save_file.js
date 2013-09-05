@@ -1,52 +1,38 @@
-/**
- * TODO support other encodings:
- * http://stackoverflow.com/questions/7329128/how-to-write-binary-data-to-a-file-using-node-js
- */
 Meteor.methods({
   saveFile: function(blob, name, path, encoding) {
-    var path = cleanPath(path),
-      name = cleanName(name || 'file'), encoding = encoding || 'binary',
-      chroot = Meteor.chroot || 'uploaded_content';
-    // Clean up the path. Remove any initial and final '/' -we prefix them-,
-    // any sort of attempt to go to the parent directory '..' and any empty directories in
-    // between '/////' - which may happen after removing '..'
-    path = chroot + (path ? '/' + path + '/' : '/');
-    path = '/Users/dennisharrison/projects/sosport/uploaded_content/'
+    var encoding = encoding || 'binary';
+    var path = '/Users/dennisharrison/projects/sosport/uploaded_content/'
     var Future = Npm.require('fibers/future');
-    var write_future = new Future();
     var ext = name.substr(name.lastIndexOf('.') + 1);
     var uuid = createUUID();
-    name = uuid + "." + ext;
-
+    var name = uuid + "." + ext;
+    var temp_name = "!TEMP_" + uuid + "." + ext;
+    var temp_path = path + temp_name;
+    var perm_path = path + name;
     var media_item = {
           url: "http://localhost:8080/" + name,
           name: name,
-          type: "image/jpeg",
+          type: "image/" + ext,
           timestamp: new Date().getTime()
         }
 
-    write_future.return(fs.writeFile(path + name, blob, encoding, function(err) {
+    var Imagemagick = Npm.require('imagemagick');
+    Imagemagick.convert.path = "/opt/ImageMagick/bin/convert";
+    var resize_future = new Future();
+
+    fs.writeFile(path + temp_name, blob, encoding, function(err) {
       if (err) {
         console.log(err);
         throw (new Meteor.Error(500, 'Failed to save file.', err));
       } else {
         console.log('The file ' + name + ' (' + encoding + ') was saved to ' + path);
+        Imagemagick.resize({ srcPath: temp_path, dstPath: perm_path, width: 500 }, function(err, stdout, stderr){
+            if (err) resize_future.return({ error:err });
+            console.log('resized');
+            resize_future.return();
+        });
       }
-    }));
-    return write_future.wait(Media.insert(media_item));
-
-    // TODO Add file existance checks, etc...
-    
- 
-    function cleanPath(str) {
-      if (str) {
-        return str.replace(/\.\./g,'').replace(/\/+/g,'').
-          replace(/^\/+/,'').replace(/\/+$/,'');
-      }
-    }
-    function cleanName(str) {
-      return str.replace(/\.\./g,'').replace(/\//g,'');
-    }
+    });
 
     function createUUID() {
     // http://www.ietf.org/rfc/rfc4122.txt
@@ -62,6 +48,9 @@ Meteor.methods({
     var uuid = s.join("");
     return uuid;
     }
-
+    
+    resize_future.wait();
+    Media.insert(media_item);
   }
+
 });
